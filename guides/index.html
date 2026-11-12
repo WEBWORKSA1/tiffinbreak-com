@@ -1,0 +1,18 @@
+---
+layout: default
+title: Tiffin guides
+description: Practical guides to tiffins. How to choose a tiffin service, start a tiffin business, keep a packed lunch safe, pick a tiffin box, and plan kids' tiffins.
+kind: Guide
+section: null
+---
+<div class="wrap">
+  <header class="article-head">
+    <h1>Tiffin guides</h1>
+    <p class="lede">Long-form answers with real numbers and sources, for people who eat tiffins, pack them, or cook them for a living.</p>
+  </header>
+  <div class="tool-list">
+    {% assign gs = site.pages | where: "kind", "Guide" | sort: "order" %}
+    {% for g in gs %}{% if g.url != page.url %}<a href="{{ g.url | relative_url }}"><b>{{ g.title }}</b>{{ g.description }}</a>{% endif %}{% endfor %}
+  </div>
+  {% include cta-strip.html %}
+</div>
