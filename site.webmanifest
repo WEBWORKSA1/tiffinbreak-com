@@ -1,0 +1,5 @@
+---
+layout: null
+sitemap: false
+---
+{"name":"TiffinBreak","short_name":"TiffinBreak","start_url":"{{ '/' | relative_url }}","display":"standalone","background_color":"#F2F5F4","theme_color":"#1D2B2F","icons":[{"src":"{{ '/assets/img/favicon.svg' | relative_url }}","sizes":"any","type":"image/svg+xml"}]}

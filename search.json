@@ -1,0 +1,5 @@
+---
+layout: null
+sitemap: false
+---
+[{%- assign first = true -%}{%- for p in site.pages -%}{%- if p.title and p.search != false and p.noindex != true -%}{%- unless first -%},{%- endunless -%}{%- assign first = false -%}{"title":{{ p.title | jsonify }},"description":{{ p.description | default: "" | jsonify }},"url":{{ p.url | relative_url | jsonify }},"type":{{ p.kind | default: "Page" | jsonify }}}{%- endif -%}{%- endfor -%}]
