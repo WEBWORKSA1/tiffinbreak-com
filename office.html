@@ -1,0 +1,53 @@
+---
+title: Office and bulk tiffin quotes
+description: Daily or weekly home-style lunches for your team, office or event. Tell us headcount, diet mix and budget and get quotes from vetted tiffin kitchens.
+ads: false
+kind: Get matched
+---
+<div class="wrap funnel">
+  <div>
+    <h1>Home-style lunch for your whole team</h1>
+    <p class="lede">Daily office tiffins, weekly team lunches or one-off events. Vegetarian, Jain, halal and non-veg in the same order, labelled per person.</p>
+    <h2>Why teams choose tiffins over catering trays</h2>
+    <ul>
+      <li><b>Individual portions.</b> Each person gets a sealed, labelled box, so diets never get mixed up.</li>
+      <li><b>Real food, not party food.</b> Dal, sabzi, rice and roti travel well and do not leave a 3 pm slump.</li>
+      <li><b>Predictable cost.</b> A fixed per-meal price, invoiced weekly or monthly.</li>
+      <li><b>One contact.</b> We coordinate the kitchens; you get one quote to approve.</li>
+    </ul>
+    <h2>Good fits</h2>
+    <p>Offices with 10 to 500 people, hospitals and care homes, construction and logistics sites, universities and student residences, temples, gurdwaras and community events, film and production crews.</p>
+    <p class="small">Quotes are free. Kitchens pay TiffinBreak a referral fee on confirmed orders; your per-meal price is the kitchen's own.</p>
+  </div>
+  <div class="form-card">
+    <h2>Request a quote</h2>
+    <form data-tb-form="office" data-redirect="thank-you.html?f=office" novalidate>
+      <label>Company or organisation<input name="company" type="text" required autocomplete="organization"></label>
+      <div class="two">
+        <label>Your name<input name="name" type="text" required autocomplete="name"></label>
+        <label>Work email<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="two">
+        <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+        <label>City<input name="city" type="text" required autocomplete="address-level2"></label>
+      </div>
+      <label>Country<select name="country" required><option value="">Choose</option>{% for k in site.data.countries %}<option value="{{ k.code }}">{{ k.name }}</option>{% endfor %}</select></label>
+      <div class="two">
+        <label>People to feed<input name="headcount" type="number" min="5" required></label>
+        <label>How often<select name="frequency" required><option value="">Choose</option><option value="daily">Every working day</option><option value="weekly">Once or twice a week</option><option value="event">One-off event</option><option value="exploring">Still deciding</option></select></label>
+      </div>
+      <fieldset class="pills"><legend>Diet mix</legend>
+        {% for d in site.data.options.diets %}<label><input type="checkbox" name="diet_mix" value="{{ d }}"> {{ d }}</label>{% endfor %}
+      </fieldset>
+      <div class="two">
+        <label>Budget per meal <span class="opt">(with currency)</span><input name="budget_per_meal" type="text" placeholder="e.g. CA$14"></label>
+        <label>Start<select name="start" required><option value="">Choose</option><option value="asap">Within 2 weeks</option><option value="month">Next month</option><option value="quarter">This quarter</option><option value="exploring">Just pricing</option></select></label>
+      </div>
+      <label>Anything else? <span class="opt">(delivery address area, allergies, packaging)</span><textarea name="notes" rows="3"></textarea></label>
+      <label class="check"><input type="checkbox" name="consent" value="Yes" required> Share this request with suitable kitchens so they can quote.</label>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+      <button class="btn btn-chili" type="submit">Get my quote</button>
+      <p class="form-msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>

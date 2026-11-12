@@ -1,0 +1,58 @@
+---
+title: List your tiffin kitchen
+description: Get matched tiffin requests from customers in your delivery area. Free basic listing, pay-per-match leads, and featured placement on TiffinBreak city guides.
+ads: false
+kind: For kitchens
+---
+<div class="wrap funnel">
+  <div>
+    <h1>Fill your tiffin route with customers who already want your food</h1>
+    <p class="lede">Customers tell us their city, diet, meals and budget before we introduce them. You only hear from people your kitchen can actually serve.</p>
+    <h2>Plans</h2>
+    <div class="plans">
+      <div class="plan"><h3>Basic listing</h3><p class="price">Free</p><ul><li>Kitchen profile on your city guide</li><li>Included in matches when no featured kitchen fits</li></ul></div>
+      <div class="plan"><h3>Matched leads</h3><p class="price" data-listing="lead">CA$12 per matched request</p><ul><li>Requests that match your area and diet</li><li>Pay only for requests you accept</li></ul></div>
+      <div class="plan featured"><h3>Featured</h3><p class="price" data-listing="featured">CA$39 / month</p><ul><li>Top of your city guide</li><li>Priority in matching</li><li>Trial offer callout</li></ul></div>
+      <div class="plan"><h3>Spotlight</h3><p class="price" data-listing="spotlight">CA$99 / month</p><ul><li>Everything in Featured</li><li>Sponsored recipe or video</li><li>Newsletter feature</li></ul></div>
+    </div>
+    <p class="small">Launch rates in Canadian dollars; we quote local equivalents elsewhere. No long contracts.</p>
+    <h2>What we ask of every kitchen</h2>
+    <ul>
+      <li>Registration or a permit from your local food authority, or a clear plan to get one. See <a href="{{ '/guides/start-a-tiffin-business.html' | relative_url }}">licensing by country</a>.</li>
+      <li>A written weekly menu and a clear price for a trial.</li>
+      <li>Replies to matched customers within one business day.</li>
+      <li>Honest descriptions: if it is cooked in a commercial kitchen, say so; if it is a home kitchen, say so.</li>
+    </ul>
+    <p>Not sure your numbers work? Try the <a href="{{ '/tools/tiffin-business-calculator.html' | relative_url }}">tiffin business calculator</a> first.</p>
+  </div>
+  <div class="form-card">
+    <h2>Apply to list your kitchen</h2>
+    <form data-tb-form="kitchen" data-redirect="thank-you.html?f=kitchen" novalidate>
+      <label>Kitchen or business name<input name="kitchen" type="text" required></label>
+      <div class="two">
+        <label>Your name<input name="name" type="text" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="two">
+        <label>Phone or WhatsApp<input name="phone" type="tel" autocomplete="tel"></label>
+        <label>City<input name="city" type="text" required autocomplete="address-level2"></label>
+      </div>
+      <label>Country<select name="country" required><option value="">Choose</option>{% for k in site.data.countries %}<option value="{{ k.code }}">{{ k.name }}</option>{% endfor %}</select></label>
+      <label>Areas you deliver to<input name="areas" type="text" placeholder="Neighbourhoods or postcodes" required></label>
+      <label>Cuisines<input name="cuisines" type="text" placeholder="Gujarati, Punjabi, South Indian..."></label>
+      <fieldset class="pills"><legend>Diets you cook</legend>{% for d in site.data.options.diets %}<label><input type="checkbox" name="diets" value="{{ d }}"> {{ d }}</label>{% endfor %}</fieldset>
+      <div class="two">
+        <label>Monthly lunch plan price<input name="price" type="text" placeholder="e.g. CA$180"></label>
+        <label>Tiffins you can cook a day<input name="capacity" type="number" min="1"></label>
+      </div>
+      <label>Food registration<select name="licence" required><option value="">Choose</option><option value="registered">Registered or permitted</option><option value="progress">Application in progress</option><option value="no">Not yet</option></select></label>
+      <label>Registration or permit number <span class="opt">(optional)</span><input name="licence_no" type="text"></label>
+      <label>Website, Instagram or menu link<input name="website" type="url" placeholder="https://"></label>
+      <label>Plan you are interested in<select name="plan"><option value="free">Basic listing (free)</option><option value="leads">Matched leads</option><option value="featured">Featured</option><option value="spotlight">Spotlight</option></select></label>
+      <label class="check"><input type="checkbox" name="confirm" value="Yes" required> I confirm my kitchen follows local food-safety rules or I am working towards registration.</label>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+      <button class="btn btn-chili" type="submit">Send my application</button>
+      <p class="form-msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>

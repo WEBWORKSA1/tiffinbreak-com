@@ -1,0 +1,28 @@
+---
+title: Tiffin recipes
+description: Indian tiffin and lunchbox recipes for kids and the office, with how long each keeps in a tin, packing tips, swaps and a servings scaler. Veg, vegan, Jain, egg and non-veg.
+kind: Recipes
+scripts: [recipes.js]
+---
+<div class="wrap">
+  <header class="article-head">
+    <h1>Tiffin recipes</h1>
+    <p class="lede">Every recipe here was written for the tin, not the plate: how long it keeps, how to pack it hot or cold, and what to swap for kids, Jain or vegan tiffins.</p>
+  </header>
+  <form class="filters" data-recipe-filters>
+    <label>Search<input type="text" name="q" placeholder="poha, paneer, rice..."></label>
+    <label>For<select name="aud"><option value="">Everyone</option><option value="kids">Kids</option><option value="office">Office</option></select></label>
+    <label>Diet<select name="diet"><option value="">Any</option><option value="veg">Vegetarian (incl. vegan and Jain)</option><option value="vegan">Vegan</option><option value="jain">Jain</option><option value="egg">Egg</option><option value="nonveg">Non-veg</option></select></label>
+    <label>Time<select name="time"><option value="">Any</option><option value="20">20 min or less</option><option value="30">30 min or less</option><option value="45">45 min or less</option></select></label>
+  </form>
+  <p class="count" data-recipe-count aria-live="polite">{{ site.data.recipes | size }} recipes</p>
+  <div class="rgrid" data-recipe-grid>
+    {% for r in site.data.recipes %}<div class="rc" data-diet="{{ r.diet }}" data-aud="{{ r.audience | join: ' ' }}" data-time="{{ r.time }}" data-q="{{ r.title | downcase }} {{ r.cuisine | downcase }} {{ r.tags | join: ' ' | downcase }}">{% include rcard.html r=r %}</div>{% endfor %}
+  </div>
+  <p class="empty" data-recipe-empty hidden>No recipe matches all of those. Clear a filter, or <a href="{{ '/find.html' | relative_url }}">let a tiffin kitchen cook for you</a>.</p>
+  <section class="band">
+    <h2>How we write tiffin recipes</h2>
+    <p>Most recipes assume you eat straight from the stove. A tiffin waits four or five hours, gets carried, tilted and opened at room temperature. So every recipe here tells you three things other sites skip: how long it keeps and under what conditions, how to pack it (hot in a preheated insulated tin, or cold with ice packs), and which ingredients to adjust so it is still good at lunch. Timing guidance follows public food-safety advice; see our <a href="{{ '/guides/tiffin-food-safety.html' | relative_url }}">tiffin food safety guide</a>.</p>
+  </section>
+  {% include cta-strip.html %}
+</div>

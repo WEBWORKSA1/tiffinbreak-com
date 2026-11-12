@@ -1,0 +1,47 @@
+---
+title: Weekly tiffin planner
+description: Plan a week of tiffins for kids or the office in one tap. Lock the days you like, swap the rest, and get one combined shopping list. Saved on your device.
+kind: Tool
+scripts: [planner.js]
+---
+<div class="wrap">
+  <header class="article-head">
+    <h1>Weekly tiffin planner</h1>
+    <p class="lede">Choose who the tiffins are for and how you eat. The planner fills the week from our recipe library without repeating a dish, then adds up one shopping list. Lock the days you like and swap the rest.</p>
+  </header>
+  <form class="filters" data-planner-form>
+    <label>Tiffins for<select name="aud"><option value="">Anyone</option><option value="kids">Kids</option><option value="office">Office</option></select></label>
+    <label>Diet<select name="diet"><option value="veg">Vegetarian</option><option value="vegan">Vegan</option><option value="jain">Jain-friendly</option><option value="egg">Vegetarian + egg</option><option value="all">Everything incl. non-veg</option></select></label>
+    <label>Days<select name="days"><option>5</option><option>6</option><option>7</option></select></label>
+    <label>Tiffins a day<input type="number" name="people" min="1" max="12" value="1"></label>
+    <label>Max cooking time<select name="time"><option value="">Any</option><option value="20">20 min</option><option value="30">30 min</option><option value="45">45 min</option></select></label>
+    <button class="btn btn-chili" type="submit">Plan my week</button>
+  </form>
+  <div class="week" data-week aria-live="polite"><p class="empty">Choose your options and press “Plan my week”.</p></div>
+  <div class="split" data-plan-extra hidden>
+    <div class="panel">
+      <h2>Shopping list</h2>
+      <p class="small">Quantities are scaled to your tiffins a day. Pantry spices are listed once.</p>
+      <ul class="shop" data-shop></ul>
+      <p class="recipe-actions"><button class="btn btn-ink" type="button" data-copy>Copy list</button><button class="btn btn-ghost" type="button" data-print>Print week</button><button class="btn btn-ghost" type="button" data-reshuffle>Swap all unlocked</button></p>
+      <p class="form-msg" data-copy-msg role="status" aria-live="polite"></p>
+    </div>
+    <div class="panel panel-haldi">
+      <h2>Get a new week every Sunday</h2>
+      <p>The Sunday tiffin note sends one ready-made week, its shopping list and the month's challenge theme.</p>
+      <form class="inline-form" data-tb-form="newsletter" data-inline-success="You're on the list. Your first note arrives Sunday." novalidate>
+        <label class="sr" for="pl-email">Email</label>
+        <input id="pl-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+        <input type="hidden" name="source" value="planner">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <button class="btn btn-ink" type="submit">Send me a week</button>
+        <p class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+      <p class="small">Too busy to cook at all this week? <a href="{{ '/find.html' | relative_url }}">Get matched with a tiffin kitchen</a>.</p>
+    </div>
+  </div>
+  <section class="band prose">
+    <h2>How to use a tiffin plan</h2>
+    <p>Cook the longest recipe on Sunday and pick dishes that share ingredients across the week: the same tempering spices, one bunch of coriander, one bag of mixed vegetables. Rice-based tiffins are safest made fresh in the morning or cooled fast and refrigerated, so put them on days you have the most time. Breads such as thepla and paratha can be cooked ahead and keep best for the end of the week.</p>
+  </section>
+</div>

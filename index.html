@@ -1,0 +1,119 @@
+---
+title: TiffinBreak
+description: Find a home-style tiffin service near you, pack a better lunchbox with tiffin recipes and a weekly planner, or start a tiffin kitchen of your own.
+body_class: home
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1><span>Eat one.</span><span>Pack one.</span><span>Cook for others.</span></h1>
+      <p class="lede">TiffinBreak matches you with home-style tiffin kitchens, plans a week of lunchboxes for you, and shows home cooks how to run a tiffin business properly.</p>
+      <form class="quick" data-quick-match>
+        <label>Your city<input name="city" type="text" list="home-cities" placeholder="Brampton, London, Pune..." required autocomplete="address-level2"></label>
+        <datalist id="home-cities">{% for x in site.data.cities %}<option value="{{ x.name }}">{% endfor %}</datalist>
+        <label>Diet<select name="diet">{% for d in site.data.options.diets %}<option>{{ d }}</option>{% endfor %}</select></label>
+        <button class="btn btn-chili" type="submit">Find tiffins near me</button>
+      </form>
+      <ul class="trust"><li>Free for customers</li><li>We ask every kitchen for its food registration</li><li>No app to install</li></ul>
+    </div>
+    <nav class="stack" aria-label="Where do you want to start?">
+      <svg class="stack-handle" viewBox="0 0 200 70" aria-hidden="true" focusable="false"><path d="M22 68 C22 14, 178 14, 178 68" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"/><circle cx="100" cy="22" r="9" fill="#E9A316"/></svg>
+      <a class="tier" href="{{ '/find.html' | relative_url }}" style="--i:0;--paint:#A82D18"><span><strong>Find a tiffin service</strong><small>Matched to your city, diet and budget. Free.</small></span><span class="code" aria-hidden="true">EAT</span></a>
+      <a class="tier" href="{{ '/recipes/' | relative_url }}" style="--i:1;--paint:#8A5A00"><span><strong>Pack your own</strong><small>{{ site.data.recipes | size }} tiffin recipes and a weekly planner.</small></span><span class="code" aria-hidden="true">PACK</span></a>
+      <a class="tier" href="{{ '/tools/tiffin-business-calculator.html' | relative_url }}" style="--i:2;--paint:#2E6A3E"><span><strong>Start a tiffin kitchen</strong><small>Profit calculator, licences and listings.</small></span><span class="code" aria-hidden="true">COOK</span></a>
+    </nav>
+  </div>
+</section>
+<div class="rim" aria-hidden="true"></div>
+<section class="band">
+  <div class="wrap split">
+    <div>
+      <h2>Today's tiffin</h2>
+      <p class="small">A different recipe from the library every day.</p>
+      <div data-today class="today"><a href="{{ '/recipes/' | relative_url }}">Browse every tiffin recipe</a></div>
+    </div>
+    <div data-month-group>
+      {% for s in site.data.seasons %}<div class="panel panel-haldi" data-month="{{ s.months }}"{% unless forloop.first %} hidden{% endunless %}>
+        <h2>{{ s.title }}</h2>
+        <p>{{ s.text }}</p>
+        <ul class="mini-list">{% for slug in s.recipes %}{% assign r = site.data.recipes | where: "slug", slug | first %}<li><a href="{{ '/recipes/' | append: r.slug | append: '.html' | relative_url }}">{{ r.title }}</a> <span class="small">{{ r.time }} min</span></li>{% endfor %}</ul>
+      </div>{% endfor %}
+    </div>
+  </div>
+</section>
+<section class="band">
+  <div class="wrap">
+    <div class="band-head"><h2>Tiffin recipes</h2><p>Every recipe says how long it keeps in a tin and how to pack it. <a href="{{ '/recipes/' | relative_url }}">See all {{ site.data.recipes | size }}</a></p></div>
+    <div class="rgrid">{% for r in site.data.recipes limit: 8 %}{% include rcard.html r=r %}{% endfor %}</div>
+  </div>
+</section>
+<section class="band">
+  <div class="wrap split">
+    <div class="panel panel-ink">
+      <h2>Plan the whole week in one tap</h2>
+      <p>Pick kids or office, your diet and five, six or seven days. The planner fills each day from the recipe library, builds one shopping list and remembers your week on this device.</p>
+      <a class="btn btn-haldi" href="{{ '/planner.html' | relative_url }}">Open the weekly planner</a>
+    </div>
+    <div class="tool-list">
+      <a href="{{ '/tools/cost-calculator.html' | relative_url }}"><b>Cook, subscribe or order in?</b>Compare a month of home cooking, a tiffin plan and takeout, including your time.</a>
+      <a href="{{ '/tools/tiffin-safety-checker.html' | relative_url }}"><b>Is my tiffin still safe?</b>Check hours, heat and ice packs against food-safety guidance.</a>
+    </div>
+  </div>
+</section>
+<div class="rim" aria-hidden="true"></div>
+<section class="band">
+  <div class="wrap split">
+    <div>
+      <h2>How matching works</h2>
+      <ol class="how">
+        <li><b>Tell us what you eat.</b> City, diet, meals, budget and when you want to start. It takes two minutes.</li>
+        <li><b>We pick up to three kitchens.</b> Only kitchens that deliver to your area and cook your diet.</li>
+        <li><b>They contact you with menus and a trial.</b> You choose, and you pay the kitchen directly. Never us.</li>
+      </ol>
+      <a class="btn btn-chili" href="{{ '/find.html' | relative_url }}">Start my request</a>
+      <p class="small">Need lunch for a team? <a href="{{ '/office.html' | relative_url }}">Get an office tiffin quote</a>.</p>
+    </div>
+    <div>
+      <h2>City guides</h2>
+      <ul class="citygrid">{% for c in site.data.cities %}<li><a href="{{ '/cities/' | append: c.slug | append: '.html' | relative_url }}">{{ c.name }}<small>{{ c.code }}</small></a></li>{% endfor %}</ul>
+      <p class="small">Not listed? <a href="{{ '/find.html' | relative_url }}">Send a request anyway</a>. Requests from new cities decide where we launch next.</p>
+    </div>
+  </div>
+</section>
+<section class="band">
+  <div class="wrap">
+    <div class="band-head"><h2>Watch: the tiffin, from Mumbai to your kitchen</h2><p><a href="{{ '/videos.html' | relative_url }}">More tiffin videos</a></p></div>
+    <div class="vgrid">
+      {% assign dv = site.data.videos | where: "topic", "dabbawala" | first %}{% include video.html id=dv.id title=dv.title %}
+      {% assign kv = site.data.videos | where: "topic", "kids" | first %}{% include video.html id=kv.id title=kv.title by=kv.by %}
+    </div>
+  </div>
+</section>
+<section class="band">
+  <div class="wrap split">
+    <div class="panel">
+      <h2>This month's tiffin challenge</h2>
+      <div data-month-group>{% for t in site.data.themes %}<div data-month="{{ t.m }}"{% unless forloop.first %} hidden{% endunless %}><h3>{{ t.title }}</h3><p>{{ t.brief }}</p></div>{% endfor %}</div>
+      <p class="small">Entries close <span data-deadline>at the end of the month</span>.</p>
+      <div class="countdown" data-countdown></div>
+      <a class="btn btn-ink" href="{{ '/challenge.html' | relative_url }}">Enter the challenge</a>
+    </div>
+    <div>
+      <h2>Tiffin news</h2>
+      <ul class="news">{% for n in site.data.news.items limit: 4 %}<li><a href="{{ n.url }}" target="_blank" rel="noopener">{{ n.title }}</a><small>{{ n.source }}{% if n.date != "" %}, {{ n.date | date: "%B %Y" }}{% endif %}</small></li>{% endfor %}</ul>
+    </div>
+  </div>
+</section>
+<section class="band">
+  <div class="wrap">
+    <h2>Cook, sell or sponsor</h2>
+    <div class="tool-list">
+      <a href="{{ '/list-your-kitchen.html' | relative_url }}"><b>List your tiffin kitchen</b>Get matched requests from customers in your delivery area. Free basic listing.</a>
+      <a href="{{ '/advertise.html' | relative_url }}"><b>Advertise or sponsor</b>City pages, sponsored recipes, the Sunday note and the monthly challenge.</a>
+      <a href="{{ '/support.html' | relative_url }}"><b>Support TiffinBreak</b>Keep the recipes and tools free, and fund the challenge prizes.</a>
+      <a href="{{ '/careers.html' | relative_url }}"><b>Work with us</b>Recipe developers, photographers, writers and city partners.</a>
+    </div>
+  </div>
+</section>
+<div class="wrap">{% include cta-strip.html %}</div>
+<div class="sticky-match"><a class="btn btn-chili" href="{{ '/find.html' | relative_url }}">Find a tiffin near me</a></div>
