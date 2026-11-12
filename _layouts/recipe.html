@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{%- assign r = site.data.recipes | where: "slug", page.slug | first -%}
+<article class="wrap recipe" data-recipe="{{ r.slug }}">
+  <header class="recipe-head">
+    <div class="recipe-tin">{% include tin.html color=r.color accent=r.accent size="lg" %}</div>
+    <div>
+      <p class="diet-line">{% include diet.html diet=r.diet %}<span>{{ r.cuisine }}</span></p>
+      <h1>{{ r.title }}</h1>
+      <p class="lede">{{ r.desc }}</p>
+      <ul class="facts">
+        <li><b>{{ r.time }} min</b><span>start to tin</span></li>
+        <li><b>{{ r.serves }}</b><span>tiffins</span></li>
+        <li><b>{{ r.keeps }}</b><span>safe in the tin</span></li>
+        <li><b>{% for a in r.audience %}{{ a | capitalize }}{% unless forloop.last %} &amp; {% endunless %}{% endfor %}</b><span>best for</span></li>
+      </ul>
+      <p class="recipe-actions"><a class="btn btn-ink" href="{{ '/planner.html' | relative_url }}?add={{ r.slug }}">Add to my week</a><button class="btn btn-ghost" type="button" data-print>Print</button></p>
+    </div>
+  </header>
+  <div class="recipe-body">
+    <section class="ingredients" aria-labelledby="ing">
+      <div class="ing-head"><h2 id="ing">Ingredients</h2>
+        <label class="scaler">Tiffins <input type="number" min="1" max="40" value="{{ r.serves }}" data-scale="{{ r.serves }}" aria-label="Number of tiffins"></label></div>
+      <ul class="ing-list">{% for i in r.ing %}<li><span class="q" data-q="{{ i[0] }}">{{ i[0] }}</span> <span class="u">{{ i[1] }}</span> {{ i[2] }}</li>{% endfor %}</ul>
+    </section>
+    <section class="method" aria-labelledby="method">
+      <h2 id="method">Method</h2>
+      <ol class="steps">{% for s in r.steps %}<li>{{ s }}</li>{% endfor %}</ol>
+      <div class="pack-note"><h3>Packing it</h3><p>{{ r.pack }}</p></div>
+      {% if r.swap %}<div class="pack-note swap"><h3>Swaps</h3><p>{{ r.swap }}</p></div>{% endif %}
+    </section>
+  </div>
+  {%- assign aud = r.audience | first -%}
+  {%- assign vids = site.data.videos | where: "topic", aud -%}
+  {%- assign v = vids | first -%}
+  {% if v %}<section class="recipe-video"><h2>More {{ aud }} tiffin ideas on video</h2>{% include video.html id=v.id title=v.title by=v.by %}</section>{% endif %}
+  <section class="related"><h2>Pack it with</h2><div class="rgrid">
+  {%- assign shown = 0 -%}
+  {%- for x in site.data.recipes -%}{%- if x.slug != r.slug and shown < 3 -%}{%- if x.audience contains aud -%}{% include rcard.html r=x %}{%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endif -%}{%- endfor -%}
+  </div></section>
+  {% include cta-strip.html %}
+</article>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":{{ r.title | jsonify }},"description":{{ r.desc | jsonify }},"recipeCuisine":{{ r.cuisine | jsonify }},"recipeCategory":"Lunch","keywords":{{ r.tags | join: ", " | jsonify }},"totalTime":"PT{{ r.time }}M","recipeYield":"{{ r.serves }} tiffins","suitableForDiet":"{% if r.diet == 'veg' or r.diet == 'jain' %}https://schema.org/VegetarianDiet{% elsif r.diet == 'vegan' %}https://schema.org/VeganDiet{% else %}https://schema.org/LowLactoseDiet{% endif %}","author":{"@type":"Organization","name":"TiffinBreak test kitchen"},"recipeIngredient":[{% for i in r.ing %}{{ i | join: " " | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}],"recipeInstructions":[{% for s in r.steps %}{"@type":"HowToStep","text":{{ s | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]}</script>

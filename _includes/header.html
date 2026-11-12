@@ -1,0 +1,17 @@
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="{{ '/' | relative_url }}">{% include glyph.html %}<span>TiffinBreak</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" data-nav-toggle><span></span><span></span><span></span><b class="sr">Menu</b></button>
+    <nav id="nav" class="nav" aria-label="Main">
+      <a href="{{ '/recipes/' | relative_url }}"{% if page.url contains '/recipes' %} aria-current="page"{% endif %}>Recipes</a>
+      <a href="{{ '/planner.html' | relative_url }}"{% if page.url contains '/planner' %} aria-current="page"{% endif %}>Planner</a>
+      <a href="{{ '/tools/' | relative_url }}"{% if page.url contains '/tools' %} aria-current="page"{% endif %}>Tools</a>
+      <a href="{{ '/cities/' | relative_url }}"{% if page.url contains '/cities' %} aria-current="page"{% endif %}>Cities</a>
+      <a href="{{ '/guides/' | relative_url }}"{% if page.url contains '/guides' %} aria-current="page"{% endif %}>Guides</a>
+      <a href="{{ '/videos.html' | relative_url }}"{% if page.url contains '/videos' %} aria-current="page"{% endif %}>Videos</a>
+      <a href="{{ '/challenge.html' | relative_url }}"{% if page.url contains '/challenge' %} aria-current="page"{% endif %}>Challenge</a>
+      <a href="{{ '/search.html' | relative_url }}" class="nav-search"{% if page.url contains '/search' %} aria-current="page"{% endif %}>Search</a>
+      <a class="btn btn-chili nav-cta" href="{{ '/find.html' | relative_url }}">Find a tiffin</a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,37 @@
+title: TiffinBreak
+tagline: Tiffin recipes, lunchbox planning and home-style tiffin services near you
+description: >-
+  TiffinBreak is an independent guide to the tiffin. Find a home-style tiffin service near you,
+  pack a better lunchbox with tested recipes and a weekly planner, or start a tiffin kitchen of your own.
+# Preview on GitHub Pages. When tiffinbreak.com points here, set url to "https://tiffinbreak.com" and baseurl to "".
+url: "https://webworksa1.github.io"
+baseurl: "/tiffinbreak-com"
+domain: "TiffinBreak.com"
+lang: en
+adsense_client: "ca-pub-6620975821265271"
+owner_contact: "https://web.works/contact"
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+plugins:
+  - jekyll-sitemap
+exclude:
+  - README.md
+  - PROMPTS.md
+  - RESEARCH.md
+  - automation
+  - Gemfile
+  - Gemfile.lock
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      ads: true
+  - scope:
+      path: "guides"
+    values:
+      layout: guide
+      section: Guides
+      section_url: /guides/

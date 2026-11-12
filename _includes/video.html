@@ -1,0 +1,4 @@
+<figure class="yt" data-yt="{{ include.id }}">
+  <button type="button" class="yt-play" aria-label="Play video: {{ include.title | escape }}"><img src="https://i.ytimg.com/vi/{{ include.id }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="yt-btn" aria-hidden="true"></span></button>
+  <figcaption>{{ include.title }}{% if include.by %} <span>by {{ include.by }}</span>{% endif %} <a href="https://www.youtube.com/watch?v={{ include.id }}" target="_blank" rel="noopener">Watch on YouTube</a></figcaption>
+</figure>

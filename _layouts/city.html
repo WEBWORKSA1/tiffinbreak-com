@@ -1,0 +1,43 @@
+---
+layout: default
+---
+{%- assign c = site.data.cities | where: "slug", page.slug | first -%}
+<article class="city">
+  <header class="wrap city-head">
+    <p class="dabba-code" title="City code used on TiffinBreak">{{ c.code }}</p>
+    <h1>Tiffin services in {{ c.name }}</h1>
+    <p class="lede">{{ c.intro }}</p>
+    <p><a class="btn btn-chili" href="#match">Get matched in {{ c.name }}</a></p>
+  </header>
+  <div class="wrap city-grid">
+    <div class="prose">
+      <h2>The tiffin scene</h2>
+      <p>{{ c.scene }}</p>
+      <h2>Where kitchens deliver most</h2>
+      <ul class="hoods">{% for h in c.hoods %}<li>{{ h }}</li>{% endfor %}</ul>
+      <h2>What a plan usually costs</h2>
+      <p>{{ c.price }}</p>
+      <p class="small">Indicative ranges from public menus and kitchen interviews, not quotes. Use the <a href="{{ '/tools/cost-calculator.html' | relative_url }}">tiffin cost calculator</a> to compare a plan with cooking or takeout.</p>
+      <h2>Cuisines you can expect</h2>
+      <ul class="chips">{% for k in c.cuisines %}<li class="chip">{{ k }}</li>{% endfor %}</ul>
+      <h2>Before you subscribe in {{ c.name }}</h2>
+      <p>{{ c.tip }}</p>
+      {% include choose-checklist.html %}
+      <h2>Running a tiffin kitchen in {{ c.name }}?</h2>
+      <p>{{ c.regulator.note }} <a href="{{ c.regulator.url }}" target="_blank" rel="noopener">{{ c.regulator.name }}</a></p>
+      <p><a class="btn btn-ink" href="{{ '/list-your-kitchen.html' | relative_url }}?city={{ c.name | cgi_escape }}">List your kitchen in {{ c.name }}</a></p>
+    </div>
+    <aside class="city-form" id="match">
+      <h2>Get matched with {{ c.name }} kitchens</h2>
+      <p class="small">Free for you. Tell us what you eat and we connect you with kitchens that deliver to your area.</p>
+      {% include lead-form.html city=c.name country=c.country currency=c.currency %}
+    </aside>
+  </div>
+  <section class="wrap">
+    <h2>Tiffin videos worth a watch</h2>
+    <div class="vgrid">{% for v in site.data.videos limit: 2 %}{% include video.html id=v.id title=v.title by=v.by %}{% endfor %}</div>
+    <h2>Other cities</h2>
+    <ul class="chips">{% for x in site.data.cities %}{% if x.slug != c.slug %}<li><a class="chip" href="{{ '/cities/' | append: x.slug | append: '.html' | relative_url }}">{{ x.name }}</a></li>{% endif %}{% endfor %}</ul>
+  </section>
+</article>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":{{ "Tiffin service matching in " | append: c.name | jsonify }},"serviceType":"Tiffin and home-style meal subscription matching","areaServed":{"@type":"City","name":{{ c.name | jsonify }}},"provider":{"@type":"Organization","name":"TiffinBreak"}}</script>

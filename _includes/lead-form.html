@@ -1,0 +1,64 @@
+<form class="lead-form" data-tb-form="customer" data-steps data-redirect="thank-you.html?f=match" novalidate>
+  <ol class="progress" aria-hidden="true"><li class="on"></li><li></li><li></li><li></li></ol>
+  <fieldset class="step" data-step="1">
+    <legend>Where should it arrive?</legend>
+    <label>City<input name="city" type="text" required list="tb-cities" value="{{ include.city }}" autocomplete="address-level2"></label>
+    <datalist id="tb-cities">{% for x in site.data.cities %}<option value="{{ x.name }}">{% endfor %}</datalist>
+    <label>Postal or ZIP code <span class="opt">(first 3 characters is enough)</span><input name="postal" type="text" maxlength="10" autocomplete="postal-code"></label>
+    <label>Country<select name="country" required>
+      {% assign ctry = include.country | default: "" %}<option value="">Choose</option>
+      {% for k in site.data.countries %}<option value="{{ k.code }}" data-cur="{{ k.cur }}"{% if k.code == ctry %} selected{% endif %}>{{ k.name }}</option>{% endfor %}
+    </select></label>
+    <fieldset class="pills"><legend>Deliver to</legend>
+      <label><input type="radio" name="deliver_to" value="Home" checked> Home</label>
+      <label><input type="radio" name="deliver_to" value="Office"> Office</label>
+      <label><input type="radio" name="deliver_to" value="Campus or residence"> Campus</label>
+    </fieldset>
+  </fieldset>
+  <fieldset class="step" data-step="2" hidden>
+    <legend>What do you eat?</legend>
+    <fieldset class="pills"><legend>Diet</legend>
+      {% for d in site.data.options.diets %}<label><input type="radio" name="diet" value="{{ d }}"{% if forloop.first %} required{% endif %}> {{ d }}</label>{% endfor %}
+    </fieldset>
+    <label>Cuisine you miss most<select name="cuisine">{% for k in site.data.options.cuisines %}<option>{{ k }}</option>{% endfor %}</select></label>
+    <fieldset class="pills"><legend>Meals</legend>
+      <label><input type="radio" name="meals" value="Lunch" checked> Lunch</label>
+      <label><input type="radio" name="meals" value="Dinner"> Dinner</label>
+      <label><input type="radio" name="meals" value="Lunch and dinner"> Both</label>
+    </fieldset>
+    <div class="two">
+      <label>Days a week<select name="days"><option>5</option><option>6</option><option>7</option></select></label>
+      <label>People<select name="people"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></label>
+    </div>
+  </fieldset>
+  <fieldset class="step" data-step="3" hidden>
+    <legend>Budget and timing</legend>
+    <label>Monthly budget per person <span class="opt" data-cur-label>(local currency)</span><select name="budget" required>
+      <option value="">Choose</option><option value="low">Keep it lean</option><option value="mid">Typical for my city</option><option value="high">Premium is fine</option><option value="unsure">Not sure yet</option>
+    </select></label>
+    <label>When do you want to start?<select name="start" required>
+      <option value="">Choose</option><option value="asap">This week</option><option value="2weeks">Within 2 weeks</option><option value="month">Next month</option><option value="exploring">Just comparing</option>
+    </select></label>
+    <label class="check"><input type="checkbox" name="trial" value="Yes" checked> I'd like a trial meal or trial week first</label>
+    <label>Anything kitchens should know? <span class="opt">(allergies, spice level, no onion-garlic)</span><textarea name="notes" rows="3"></textarea></label>
+  </fieldset>
+  <fieldset class="step" data-step="4" hidden>
+    <legend>Where should kitchens reply?</legend>
+    <label>Name<input name="name" type="text" required autocomplete="name"></label>
+    <label>Email<input name="email" type="email" required autocomplete="email"></label>
+    <label>Phone or WhatsApp <span class="opt">(faster replies)</span><input name="phone" type="tel" autocomplete="tel"></label>
+    <fieldset class="pills"><legend>Best way to reach you</legend>
+      <label><input type="radio" name="contact_pref" value="WhatsApp" checked> WhatsApp</label>
+      <label><input type="radio" name="contact_pref" value="Call"> Call</label>
+      <label><input type="radio" name="contact_pref" value="Email"> Email</label>
+    </fieldset>
+    <label class="check"><input type="checkbox" name="consent" value="Yes" required> Share my request with up to three tiffin kitchens that match it. <a href="{{ '/privacy.html' | relative_url }}">Privacy</a></label>
+  </fieldset>
+  <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+  <div class="step-nav">
+    <button class="btn btn-ghost" type="button" data-back hidden>Back</button>
+    <button class="btn btn-ink" type="button" data-next>Next</button>
+    <button class="btn btn-chili" type="submit" data-submit hidden>Send my request</button>
+  </div>
+  <p class="form-msg" role="status" aria-live="polite"></p>
+</form>

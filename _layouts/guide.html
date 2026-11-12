@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="wrap article">
+  <header class="article-head">
+    <h1>{{ page.title }}</h1>
+    {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
+    <p class="meta"><span>Updated {{ site.time | date: "%B %Y" }}</span><span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span><a href="{{ '/editorial-policy.html' | relative_url }}">How we write guides</a></p>
+  </header>
+  <div class="article-grid">
+    <aside class="toc" data-toc aria-label="On this page"></aside>
+    <div class="prose" data-prose>
+      {{ content }}
+      {% if page.video %}<h2 id="watch">Watch</h2>{% include video.html id=page.video title=page.video_title %}{% endif %}
+      {% if page.sources %}<h2 id="sources">Sources</h2><ul class="sources">{% for s in page.sources %}<li><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a></li>{% endfor %}</ul>{% endif %}
+    </div>
+  </div>
+  {% include cta-strip.html %}
+</article>

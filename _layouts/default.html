@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- assign ptitle = page.title | default: site.title -%}
+{%- if page.url == "/" -%}{%- assign full_title = site.title | append: ": " | append: site.tagline -%}{%- else -%}{%- assign full_title = ptitle | append: " | " | append: site.title -%}{%- endif -%}
+{%- assign pdesc = page.description | default: site.description | strip_html | strip_newlines -%}
+<title>{{ full_title | escape }}</title>
+<meta name="description" content="{{ pdesc | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+{% if page.noindex %}<meta name="robots" content="noindex,follow">
+{% endif %}<meta name="google-adsense-account" content="{{ site.adsense_client }}">
+<meta name="theme-color" content="#1D2B2F">
+<meta property="og:type" content="{% if page.layout == 'recipe' or page.layout == 'guide' %}article{% else %}website{% endif %}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ ptitle | escape }}">
+<meta property="og:description" content="{{ pdesc | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&family=Rozha+One&display=swap">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}">
+{% unless page.ads == false %}<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
+{% endunless %}<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"{{ '/' | absolute_url }}#org","name":"{{ site.title }}","url":"{{ '/' | absolute_url }}","logo":"{{ '/assets/img/favicon.svg' | absolute_url }}"},{"@type":"WebSite","@id":"{{ '/' | absolute_url }}#site","name":"{{ site.title }}","url":"{{ '/' | absolute_url }}","publisher":{"@id":"{{ '/' | absolute_url }}#org"},"potentialAction":{"@type":"SearchAction","target":"{{ '/search.html' | absolute_url }}?q={query}","query-input":"required name=query"}}{% if page.section %},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ '/' | absolute_url }}"},{"@type":"ListItem","position":2,"name":{{ page.section | jsonify }},"item":"{{ page.section_url | absolute_url }}"},{"@type":"ListItem","position":3,"name":{{ ptitle | jsonify }},"item":"{{ page.url | absolute_url }}"}]}{% endif %}]}</script>
+{{ page.head_extra }}
+</head>
+<body class="{{ page.body_class }}">
+<a class="skip" href="#main">Skip to content</a>
+<a class="owner-bar" href="{{ site.owner_contact }}" target="_blank" rel="noopener">Contact, if you are interested in this website / domain name / sponsorship / advertisement / partnership</a>
+{% include header.html %}
+<main id="main">
+{% if page.section %}<nav class="crumbs wrap" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">/</span><a href="{{ page.section_url | relative_url }}">{{ page.section }}</a><span aria-hidden="true">/</span><span aria-current="page">{{ page.crumb | default: ptitle }}</span></nav>
+{% endif %}{{ content }}
+</main>
+{% include footer.html %}
+<div class="cookie" data-cookie hidden>
+  <p>We use cookies to run ads, remember your planner and measure what helps. <a href="{{ '/privacy.html' | relative_url }}#cookies">How we use cookies</a></p>
+  <button class="btn btn-ink" type="button" data-cookie-ok>OK</button>
+</div>
+<script>window.TB_BASE={{ site.baseurl | jsonify }};</script>
+<script src="{{ '/assets/js/config.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+{% for s in page.scripts %}<script src="{{ '/assets/js/' | append: s | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+{% endfor %}</body>
+</html>

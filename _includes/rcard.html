@@ -1,0 +1,8 @@
+<a class="rcard" href="{{ '/recipes/' | append: include.r.slug | append: '.html' | relative_url }}">
+  {% include tin.html color=include.r.color accent=include.r.accent %}
+  <span class="rcard-body">
+    <span class="diet-line">{% include diet.html diet=include.r.diet %}<span>{{ include.r.time }} min</span></span>
+    <b>{{ include.r.title }}</b>
+    <span class="rcard-desc">{{ include.r.desc | truncate: 92 }}</span>
+  </span>
+</a>
