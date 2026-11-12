@@ -1,0 +1,37 @@
+---
+title: Tiffin services by city
+description: City guides to home-style tiffin services in Canada, the US, the UK, Australia and India. Neighbourhoods, typical prices, cuisines and local food-business rules.
+kind: City guide
+---
+<div class="wrap">
+  <header class="article-head">
+    <h1>Tiffin services by city</h1>
+    <p class="lede">Each guide covers where kitchens deliver, what plans usually cost, which cuisines you can expect, and the local rules for anyone cooking tiffins to sell. The code beside each city is how we label routes and requests.</p>
+  </header>
+  {% assign groups = "CA,US,UK,AU,IN" | split: "," %}
+  {% for g in groups %}{% assign cs = site.data.cities | where: "country", g %}{% assign cn = site.data.countries | where: "code", g | first %}
+  <section class="band">
+    <h2>{{ cn.name }}</h2>
+    <ul class="citygrid">{% for c in cs %}<li><a href="{{ '/cities/' | append: c.slug | append: '.html' | relative_url }}">{{ c.name }}<small>{{ c.code }}</small></a></li>{% endfor %}</ul>
+  </section>
+  {% endfor %}
+  <section class="split band">
+    <div class="prose">
+      <h2>Your city is not here yet?</h2>
+      <p>We add guides where readers ask for them and where we can verify kitchens. Tell us your city, and if you want a tiffin now, send a match request anyway: we will tell you honestly if we cannot cover you.</p>
+      <p><a class="btn btn-chili" href="{{ '/find.html' | relative_url }}">Send a match request</a></p>
+    </div>
+    <div class="form-card">
+      <h2>Request a city guide</h2>
+      <form data-tb-form="city" data-inline-success="Thanks. Requests like yours decide which city we cover next." novalidate>
+        <label>City<input name="city" type="text" required autocomplete="address-level2"></label>
+        <label>Country<select name="country" required><option value="">Choose</option>{% for k in site.data.countries %}<option value="{{ k.code }}">{{ k.name }}</option>{% endfor %}</select></label>
+        <label>Email <span class="opt">(we tell you when it is live)</span><input name="email" type="email" autocomplete="email"></label>
+        <fieldset class="pills"><legend>I am a</legend><label><input type="radio" name="role" value="Customer" checked> Customer</label><label><input type="radio" name="role" value="Kitchen"> Tiffin kitchen</label></fieldset>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <button class="btn btn-ink" type="submit">Request this city</button>
+        <p class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</div>
