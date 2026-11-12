@@ -5,7 +5,7 @@ layout: default
   <header class="article-head">
     <h1>{{ page.title }}</h1>
     {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
-    <p class="meta"><span>Updated {{ site.time | date: "%B %Y" }}</span><span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span><a href="{{ '/editorial-policy.html' | relative_url }}">How we write guides</a></p>
+    <p class="meta"><span>Updated {{ site.time | date: "%B %Y" }}</span><span>{{ content | number_of_words | divided_by: 200 | floor | plus: 1 }} min read</span><a href="{{ '/editorial-policy.html' | relative_url }}">How we write guides</a></p>
   </header>
   <div class="article-grid">
     <aside class="toc" data-toc aria-label="On this page"></aside>

@@ -8,6 +8,7 @@ kind: Get matched
   <div>
     <h1>Find a tiffin service that cooks the way you eat</h1>
     <p class="lede">Two minutes of questions. Then up to three kitchens that deliver to your area contact you with their menu, price and a trial offer.</p>
+    <p class="jump"><a class="btn btn-chili" href="#request">Start my request</a></p>
     <ol class="how">
       <li><b>Tell us what you eat.</b> Jain, no onion-garlic, halal, vegan, high-protein: be as specific as you like.</li>
       <li><b>We match your request.</b> We look for kitchens that cover your postcode and cook your diet, and send your request to no more than three.</li>
@@ -23,7 +24,7 @@ kind: Get matched
     {% include choose-checklist.html %}
     <p class="small">How we make money: kitchens pay TiffinBreak for introductions and listings. That never changes the price you pay the kitchen, and we never sell your details to anyone else. <a href="{{ '/privacy.html' | relative_url }}">Privacy</a></p>
   </div>
-  <div class="form-card">
+  <div class="form-card" id="request">
     <h2>Your tiffin request</h2>
     {% include lead-form.html %}
   </div>
