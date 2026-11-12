@@ -3,9 +3,9 @@ tagline: Tiffin recipes, lunchbox planning and home-style tiffin services near y
 description: >-
   TiffinBreak is an independent guide to the tiffin. Find a home-style tiffin service near you,
   pack a better lunchbox with tested recipes and a weekly planner, or start a tiffin kitchen of your own.
-# Preview on GitHub Pages. When tiffinbreak.com points here, set url to "https://tiffinbreak.com" and baseurl to "".
-url: "https://webworksa1.github.io"
-baseurl: "/tiffinbreak-com"
+# Live on the custom domain (CNAME: tiffinbreak.com), served from the root.
+url: "https://tiffinbreak.com"
+baseurl: ""
 domain: "TiffinBreak.com"
 lang: en
 adsense_client: "ca-pub-6620975821265271"
