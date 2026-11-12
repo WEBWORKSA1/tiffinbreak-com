@@ -1,0 +1,31 @@
+---
+title: Contact TiffinBreak
+description: Contact TiffinBreak with questions, corrections, kitchen listing enquiries, partnership ideas, press requests or privacy requests.
+kind: Contact
+---
+<div class="wrap split" style="padding-top:20px">
+  <div class="prose">
+    <h1>Contact us</h1>
+    <p class="lede">Send a message and we reply within one business day.</p>
+    <ul>
+      <li><b>Looking for a tiffin?</b> The <a href="{{ '/find.html' | relative_url }}">match form</a> is faster than a message.</li>
+      <li><b>Run a tiffin kitchen?</b> <a href="{{ '/list-your-kitchen.html' | relative_url }}">Apply for a listing</a>.</li>
+      <li><b>Brands and agencies:</b> see <a href="{{ '/advertise.html' | relative_url }}">advertising and sponsorship</a>.</li>
+      <li><b>Interested in this website or domain name?</b> <a href="{{ site.owner_contact }}" target="_blank" rel="noopener">Contact the owner</a>.</li>
+    </ul>
+  </div>
+  <div class="form-card">
+    <form data-tb-form="contact" data-redirect="thank-you.html?f=contact" novalidate>
+      <label>Topic<select name="topic" required><option value="">Choose</option><option>General question</option><option>Correction to a page</option><option>Recipe question</option><option>Kitchen listing</option><option>Advertising or partnership</option><option>Press</option><option>Privacy request</option><option>Copyright or trademark</option></select></label>
+      <div class="two">
+        <label>Name<input name="name" type="text" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <label>Page you are writing about <span class="opt">(optional)</span><input name="about_page" type="url" placeholder="https://"></label>
+      <label>Message<textarea name="message" rows="6" required></textarea></label>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+      <button class="btn btn-chili" type="submit">Send message</button>
+      <p class="form-msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>

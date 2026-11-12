@@ -1,0 +1,20 @@
+---
+title: Thank you
+description: Your request has been sent to TiffinBreak.
+ads: false
+noindex: true
+sitemap: false
+search: false
+---
+<div class="wrap article" style="padding-top:30px">
+  <h1>Sent. Thank you.</h1>
+  <div class="prose">
+    <div data-ty="match" hidden><p class="lede">Your tiffin request is in. We are matching it with kitchens that deliver to your area, and you should hear from them within one business day, usually on WhatsApp or by phone.</p><p>While you wait, compare what a plan should cost with the <a href="{{ '/tools/cost-calculator.html' | relative_url }}">cost calculator</a>, or read <a href="{{ '/guides/how-to-choose-a-tiffin-service.html' | relative_url }}">six questions to ask any kitchen</a>.</p></div>
+    <div data-ty="office" hidden><p class="lede">Your office quote request is in. Expect a quote within one business day.</p></div>
+    <div data-ty="kitchen" hidden><p class="lede">Your kitchen application is in. We reply within one business day to confirm your listing and ask for your menu.</p><p>Meanwhile, check your pricing with the <a href="{{ '/tools/tiffin-business-calculator.html' | relative_url }}">business calculator</a>.</p></div>
+    <div data-ty="contact" hidden><p class="lede">Your message is in. We reply within one business day.</p></div>
+    <div data-ty="default"><p class="lede">We have your submission and will reply within one business day.</p></div>
+    <p><a class="btn btn-ink" href="{{ '/recipes/' | relative_url }}">Browse tiffin recipes</a></p>
+  </div>
+</div>
+<script>(function(){var f=new URLSearchParams(location.search).get('f');var el=f&&document.querySelector('[data-ty="'+f+'"]');if(el){el.hidden=false;document.querySelector('[data-ty="default"]').hidden=true;}})();</script>

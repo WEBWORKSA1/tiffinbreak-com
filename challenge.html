@@ -1,0 +1,65 @@
+---
+title: The monthly tiffin challenge
+description: Enter TiffinBreak's monthly tiffin challenge. A new theme every month, judged on skill, with gift-card prizes and your recipe featured on the site.
+kind: Challenge
+---
+<div class="wrap">
+  <header class="article-head">
+    <h1>The monthly tiffin challenge</h1>
+    <p class="lede">One theme a month. Pack a tiffin that fits it, photograph it, tell us the recipe. Judges pick the best three on skill, not luck.</p>
+  </header>
+  <div class="split">
+    <div class="panel">
+      <h2>This month</h2>
+      <div data-month-group>{% for t in site.data.themes %}<div data-month="{{ t.m }}"{% unless forloop.first %} hidden{% endunless %}><h3>{{ t.title }}</h3><p>{{ t.brief }}</p></div>{% endfor %}</div>
+      <p class="small">Entries close <span data-deadline>at the end of the month</span>, 11:59 pm Eastern Time.</p>
+      <div class="countdown" data-countdown></div>
+      <h3>Prizes</h3>
+      <ul class="prizes" data-prizes><li><b>First</b>Gift card + featured recipe</li><li><b>Second</b>Gift card</li><li><b>Third</b>Gift card</li></ul>
+      <p class="small">Brands can sponsor a month and supply the prizes. <a href="{{ '/advertise.html' | relative_url }}">Sponsor the challenge</a></p>
+    </div>
+    <div class="form-card">
+      <h2>Enter</h2>
+      <form data-tb-form="challenge" data-inline-success="Entry received. Good luck. Winners are announced within 10 days of the closing date." novalidate>
+        <div class="two">
+          <label>Name<input name="name" type="text" required autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        </div>
+        <div class="two">
+          <label>City<input name="city" type="text" required autocomplete="address-level2"></label>
+          <label>Country<select name="country" required><option value="">Choose</option>{% for k in site.data.countries %}<option value="{{ k.code }}">{{ k.name }}</option>{% endfor %}</select></label>
+        </div>
+        <label>Name of your tiffin<input name="entry_title" type="text" required></label>
+        <label>Photo link <span class="opt">(Instagram post, Google Drive or Dropbox, set to public)</span><input name="photo_url" type="url" required placeholder="https://"></label>
+        <label>Recipe and how it fits the theme<textarea name="recipe" rows="6" required></textarea></label>
+        <label>Instagram handle <span class="opt">(optional, for credit)</span><input name="instagram" type="text"></label>
+        <label class="check"><input type="checkbox" name="adult" value="Yes" required> I am 18 or older, this is my own original work, and I accept the <a href="#rules">official rules</a>.</label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <button class="btn btn-chili" type="submit">Submit my entry</button>
+        <p class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+  <section class="band prose">
+    <h2>How entries are judged</h2>
+    <table><thead><tr><th>Criterion</th><th>Weight</th></tr></thead><tbody>
+      <tr><td>Fit with the month's theme</td><td>30%</td></tr>
+      <tr><td>Tiffin practicality: does it pack, travel and keep?</td><td>30%</td></tr>
+      <tr><td>Creativity and flavour, judged from the recipe</td><td>20%</td></tr>
+      <tr><td>Photo and presentation</td><td>20%</td></tr>
+    </tbody></table>
+    <h2 id="rules">Official rules</h2>
+    <ol>
+      <li><b>Organiser.</b> The challenge is run by TiffinBreak.com.</li>
+      <li><b>Eligibility.</b> Open to individuals aged 18 or older in Canada, the United States, the United Kingdom, Australia, India and the United Arab Emirates. Void where prohibited or restricted by law. People involved in running the challenge and their households cannot enter.</li>
+      <li><b>Entry period.</b> Each monthly challenge opens on the first day of the month and closes at 11:59 pm Eastern Time on its last day.</li>
+      <li><b>How to enter.</b> Submit the form above with a link to an original photo of your tiffin and the recipe. One entry per person per month. No purchase is necessary.</li>
+      <li><b>Judging.</b> This is a contest of skill. A panel chosen by TiffinBreak scores every eligible entry against the criteria above. Judges' decisions are final.</li>
+      <li><b>Prizes.</b> Three prizes per month, as listed on this page. Prizes are not allocated by country or region, cannot be exchanged for cash except at the organiser's discretion, and may be replaced by a prize of equal or greater value.</li>
+      <li><b>Winners.</b> Winners are contacted by email within 10 days of the closing date and must reply within 14 days or another winner may be chosen. Canadian residents must correctly answer a time-limited skill-testing question before receiving a prize.</li>
+      <li><b>Your content.</b> You keep ownership of your photo and recipe. By entering, you allow TiffinBreak to publish your entry, name and city on this website, its newsletter and its social channels, with credit.</li>
+      <li><b>Privacy.</b> We use your details only to run the challenge and contact you about it. See the <a href="{{ '/privacy.html' | relative_url }}">privacy policy</a>.</li>
+      <li><b>General.</b> TiffinBreak may disqualify entries that are not original, break these rules or contain inappropriate content, and may change or cancel a challenge if something outside its control affects it.</li>
+    </ol>
+  </section>
+</div>

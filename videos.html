@@ -1,0 +1,38 @@
+---
+title: Tiffin videos
+description: Hand-picked YouTube videos on tiffins. Kids' lunch box ideas, office tiffins, Mumbai's dabbawalas and how to start a tiffin business. Play here or on YouTube.
+kind: Videos
+---
+<div class="wrap">
+  <header class="article-head">
+    <h1>Tiffin videos</h1>
+    <p class="lede">Videos we think are worth your time, grouped by what you want to do. They play through YouTube's own player and belong to their creators.</p>
+  </header>
+  {% assign topics = "kids|Kids' tiffin ideas,office|Office and high-protein tiffins,dabbawala|Mumbai's dabbawalas,business|Starting a tiffin business" | split: "," %}
+  {% for t in topics %}{% assign parts = t | split: "|" %}{% assign vs = site.data.videos | where: "topic", parts[0] %}
+  <section class="band">
+    <h2>{{ parts[1] }}</h2>
+    <div class="vgrid">{% for v in vs %}{% include video.html id=v.id title=v.title by=v.by %}{% endfor %}</div>
+  </section>
+  {% endfor %}
+  <section class="split band">
+    <div class="prose">
+      <h2>Make tiffin videos?</h2>
+      <p>Suggest your video for this page, or pitch a sponsored recipe video with us. We feature creators who show real tiffins, packed and eaten, not just cooked.</p>
+      <p class="small">Video creators who want a video removed can ask through the <a href="{{ '/contact.html' | relative_url }}">contact form</a>; we act within two business days.</p>
+    </div>
+    <div class="form-card">
+      <h2>Suggest a video</h2>
+      <form data-tb-form="contact" data-inline-success="Thanks. We review every suggestion." novalidate>
+        <input type="hidden" name="topic" value="Video suggestion">
+        <label>YouTube link<input name="video_url" type="url" required placeholder="https://www.youtube.com/watch?v=..."></label>
+        <label>Your name<input name="name" type="text" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        <label class="check"><input type="checkbox" name="creator" value="Yes"> I made this video</label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <button class="btn btn-ink" type="submit">Suggest video</button>
+        <p class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</div>

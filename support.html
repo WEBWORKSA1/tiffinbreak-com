@@ -1,0 +1,55 @@
+---
+title: Support TiffinBreak
+description: Help keep TiffinBreak's tiffin recipes, planner and tools free. Support funds recipe development, challenge prizes, hiring writers and photographers, and marketing.
+kind: Support
+---
+<div class="wrap" data-support>
+  <header class="article-head">
+    <h1>Keep the tiffin tools free</h1>
+    <p class="lede">TiffinBreak is independent. Ads and kitchen listings pay part of the bill; readers who chip in pay for the rest and decide how fast we grow.</p>
+  </header>
+  <div class="split">
+    <div>
+      <h2>Choose an amount</h2>
+      <div class="tiers">
+        <button type="button" data-amount="5" data-tier="Chai" aria-pressed="false"><b>$5</b>A cup of chai</button>
+        <button type="button" data-amount="15" data-tier="Tiffin" aria-pressed="true"><b>$15</b>One tiffin</button>
+        <button type="button" data-amount="50" data-tier="Week of tiffins" aria-pressed="false"><b>$50</b>A week of tiffins</button>
+        <button type="button" data-amount="150" data-tier="Patron" aria-pressed="false"><b>$150</b>Patron</button>
+      </div>
+      <div class="paylinks" data-paylinks></div>
+      <p class="small" data-pledge-note>Send a pledge with the form and we reply with a secure payment link. Nothing is charged until you pay that link.</p>
+      <h2>Where the money goes</h2>
+      <ul>
+        <li><b>Operations:</b> hosting, tools and the forms that connect customers with kitchens.</li>
+        <li><b>Recipes:</b> developing and testing new tiffin recipes, including regional and Jain cooking.</li>
+        <li><b>Prizes:</b> the monthly challenge gift cards.</li>
+        <li><b>People:</b> paying writers, photographers and city partners.</li>
+        <li><b>Promotion:</b> reaching more families and more kitchens in new cities.</li>
+      </ul>
+      <p class="small">TiffinBreak is not a registered charity, so contributions are not tax-deductible. Supporters who opt in are thanked by first name in the Sunday note.</p>
+    </div>
+    <div class="form-card">
+      <h2>Pledge your support</h2>
+      <form data-tb-form="pledge" data-inline-success="Thank you. We will email your payment link within one business day." novalidate>
+        <input type="hidden" name="tier" value="Tiffin">
+        <div class="two">
+          <label>Amount<input name="amount" type="number" min="1" value="15" required></label>
+          <label>Currency<select name="currency"><option>CAD</option><option>USD</option><option>GBP</option><option>AUD</option><option>INR</option><option>EUR</option></select></label>
+        </div>
+        <fieldset class="pills"><legend>How often</legend>
+          <label><input type="radio" name="frequency" value="One time" checked> One time</label>
+          <label><input type="radio" name="frequency" value="Monthly"> Monthly</label>
+        </fieldset>
+        <label>Name<input name="name" type="text" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        <label>Message <span class="opt">(optional)</span><textarea name="message" rows="3"></textarea></label>
+        <label class="check"><input type="checkbox" name="public_thanks" value="Yes"> Thank me by first name in the newsletter</label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <button class="btn btn-chili" type="submit">Send my pledge</button>
+        <p class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+      <p class="small">Representing a brand? <a href="{{ '/advertise.html' | relative_url }}">Sponsorship</a> gets you more than a thank-you.</p>
+    </div>
+  </div>
+</div>

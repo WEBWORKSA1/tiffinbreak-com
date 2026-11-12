@@ -1,0 +1,47 @@
+---
+title: Advertise, sponsor or partner with TiffinBreak
+description: Reach people who eat, pack and cook tiffins. Featured kitchen listings, city page sponsorship, sponsored recipes and videos, newsletter sponsorship and the monthly challenge.
+kind: Advertise
+---
+<div class="wrap">
+  <header class="article-head">
+    <h1>Advertise, sponsor or partner</h1>
+    <p class="lede">TiffinBreak reaches three audiences that brands rarely find in one place: households looking for a tiffin service, parents and professionals packing their own, and home cooks starting tiffin kitchens.</p>
+  </header>
+  <div class="plans">{% for p in site.data.packages %}<div class="plan{% if forloop.first %} featured{% endif %}"><h3>{{ p.name }}</h3><p class="price">{{ p.price }}</p><p class="small">For {{ p.for | downcase }}</p><ul>{% for x in p.points %}<li>{{ x }}</li>{% endfor %}</ul></div>{% endfor %}</div>
+  <div class="split">
+    <div class="prose">
+      <h2>Who fits</h2>
+      <p>Indian and South Asian grocers, spice and staples brands, lunchbox and kitchenware makers, appliance brands (pressure cookers, air fryers, rice cookers), packaging suppliers, tiffin and meal-prep software, food-safety trainers, and local services for newcomers.</p>
+      <h2>Our rules</h2>
+      <ul>
+        <li>Sponsored recipes and videos are clearly labelled as sponsored.</li>
+        <li>We do not accept ads for unregistered food businesses or for products we would not put in our own tiffin.</li>
+        <li>Google AdSense runs alongside; sponsors can buy ad-free placements on city pages.</li>
+      </ul>
+      <p>Interested in buying the website or the TiffinBreak.com domain, or a larger partnership? <a href="{{ site.owner_contact }}" target="_blank" rel="noopener">Contact the owner directly</a>.</p>
+    </div>
+    <div class="form-card">
+      <h2>Get the media kit</h2>
+      <form data-tb-form="partner" data-inline-success="Thanks. We will send the media kit and rates within one business day." novalidate>
+        <div class="two">
+          <label>Name<input name="name" type="text" required autocomplete="name"></label>
+          <label>Work email<input name="email" type="email" required autocomplete="email"></label>
+        </div>
+        <div class="two">
+          <label>Company<input name="company" type="text" required autocomplete="organization"></label>
+          <label>Website<input name="website" type="url" placeholder="https://"></label>
+        </div>
+        <fieldset class="pills"><legend>Interested in</legend>{% for p in site.data.packages %}<label><input type="checkbox" name="interest" value="{{ p.name }}"> {{ p.name }}</label>{% endfor %}</fieldset>
+        <div class="two">
+          <label>Monthly budget<select name="budget"><option>Under $250</option><option>$250 to $1,000</option><option>$1,000 to $5,000</option><option>Over $5,000</option></select></label>
+          <label>Markets<input name="markets" type="text" placeholder="GTA, London, Mumbai..."></label>
+        </div>
+        <label>What would you like to achieve?<textarea name="message" rows="4"></textarea></label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <button class="btn btn-chili" type="submit">Send me the media kit</button>
+        <p class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+---
+title: Careers at TiffinBreak
+description: Work with TiffinBreak. Freelance and commission roles for recipe developers, food photographers and video creators, writers, city partnership leads and kitchen onboarding sales.
+kind: Careers
+---
+<div class="wrap">
+  <header class="article-head">
+    <h1>Work with TiffinBreak</h1>
+    <p class="lede">We are small, remote-first and paid by results. If you cook, shoot, write or sell to food businesses, there is probably a role for you.</p>
+  </header>
+  <div class="split">
+    <div>
+      <h2>Open roles</h2>
+      <div class="jobs">{% for j in site.data.jobs %}<div class="job"><h3>{{ j.title }}</h3><p class="small">{{ j.type }}, {{ j.where }}</p><p>{{ j.summary }}</p></div>{% endfor %}</div>
+      <p class="small">Do not see your role? Apply anyway and tell us what you would do.</p>
+    </div>
+    <div class="form-card">
+      <h2>Apply</h2>
+      <form data-tb-form="careers" data-inline-success="Application received. We reply to every applicant within a week." novalidate>
+        <label>Role<select name="role" required><option value="">Choose</option>{% for j in site.data.jobs %}<option>{{ j.title }}</option>{% endfor %}<option>Something else</option></select></label>
+        <div class="two">
+          <label>Name<input name="name" type="text" required autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        </div>
+        <div class="two">
+          <label>City<input name="city" type="text" autocomplete="address-level2"></label>
+          <label>Phone <span class="opt">(optional)</span><input name="phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <label>Portfolio, LinkedIn or CV link<input name="portfolio" type="url" required placeholder="https://"></label>
+        <label>Why you, in a few lines<textarea name="pitch" rows="5" required></textarea></label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <button class="btn btn-chili" type="submit">Send application</button>
+        <p class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</div>
