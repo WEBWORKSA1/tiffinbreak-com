@@ -1,0 +1,42 @@
+---
+title: Tiffin cost calculator
+description: Is a tiffin service worth it? Compare the real monthly cost of cooking lunch yourself, a tiffin subscription and takeout, including the value of your time.
+kind: Tool
+section: Tools
+section_url: /tools/
+crumb: Cost calculator
+scripts: [tools.js]
+---
+<div class="wrap">
+  <header class="article-head">
+    <h1>Cook, subscribe or order in?</h1>
+    <p class="lede">Put in your own numbers. The calculator compares a month of weekday lunches three ways and tells you which one is cheapest once your time is counted.</p>
+  </header>
+  <div class="tool" data-tool="cost">
+    <form class="form-card" novalidate>
+      <label>Currency<select name="cur"><option value="CAD">CAD (Canada)</option><option value="USD">USD (United States)</option><option value="GBP">GBP (United Kingdom)</option><option value="AUD">AUD (Australia)</option><option value="INR">INR (India)</option></select></label>
+      <div class="two">
+        <label>People<input type="number" name="people" min="1" value="1"></label>
+        <label>Lunches a week<input type="number" name="meals" min="1" max="7" value="5"></label>
+      </div>
+      <h3>Cooking it yourself</h3>
+      <div class="two">
+        <label>Groceries per meal<input type="number" name="grocery" step="0.1" min="0"></label>
+        <label>Minutes per cook and clean-up<input type="number" name="minutes" min="0" value="40"></label>
+      </div>
+      <label>What an hour of your time is worth<input type="number" name="hour" step="0.5" min="0"></label>
+      <h3>A tiffin plan</h3>
+      <label>Monthly plan price, per person<input type="number" name="plan" step="1" min="0"></label>
+      <h3>Takeout or canteen</h3>
+      <label>Average lunch, per person<input type="number" name="takeout" step="0.5" min="0"></label>
+      <p class="small">Defaults are typical figures for the currency you choose. Change any of them.</p>
+    </form>
+    <div class="result" aria-live="polite" data-out></div>
+  </div>
+  <section class="prose">
+    <h2>How the comparison works</h2>
+    <p>A month is 4.33 weeks. Home cooking is shown twice: groceries only, and groceries plus the value of the time you spend cooking and washing up. Time is counted per cooking session, not per person, because cooking for two takes only a little longer than cooking for one. The tiffin plan is the price you would pay a kitchen, and takeout is the average you spend on a bought lunch.</p>
+    <p>If the tiffin plan wins on cost-plus-time but not on cash, the honest answer is that you are buying back hours. That is often the right trade for students in exam season, new parents and anyone working long shifts.</p>
+  </section>
+  {% include cta-strip.html %}
+</div>

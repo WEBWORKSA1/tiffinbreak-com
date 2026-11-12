@@ -1,0 +1,75 @@
+---
+title: Tiffin business calculator
+description: Model a tiffin service before you start. Enter your price, food cost, packaging, delivery and fixed costs to see monthly profit, margin, profit per hour and break-even customers.
+kind: Tool
+section: Tools
+section_url: /tools/
+crumb: Business calculator
+scripts: [tools.js]
+---
+<div class="wrap">
+  <header class="article-head">
+    <h1>Tiffin business calculator</h1>
+    <p class="lede">Most new tiffin kitchens underprice. Enter what a tiffin really costs you, and see whether the business pays you more than a part-time job would.</p>
+  </header>
+  <div class="tool" data-tool="biz">
+    <form class="form-card" novalidate>
+      <label>Currency<select name="cur"><option value="CAD">CAD</option><option value="USD">USD</option><option value="GBP">GBP</option><option value="AUD">AUD</option><option value="INR">INR</option></select></label>
+      <div class="two">
+        <label>Price per tiffin<input type="number" name="price" step="0.5" min="0"></label>
+        <label>Subscribers<input type="number" name="subs" min="0" value="25"></label>
+      </div>
+      <div class="two">
+        <label>Tiffins per subscriber a month<input type="number" name="per" min="1" value="22"></label>
+        <label>Food cost per tiffin<input type="number" name="food" step="0.1" min="0"></label>
+      </div>
+      <div class="two">
+        <label>Packaging per tiffin<input type="number" name="pack" step="0.05" min="0"></label>
+        <label>App or platform commission %<input type="number" name="comm" step="1" min="0" max="60" value="0"></label>
+      </div>
+      <div class="two">
+        <label>Delivery cost a month<input type="number" name="deliv" step="10" min="0"></label>
+        <label>Other fixed costs a month<input type="number" name="fixed" step="10" min="0"></label>
+      </div>
+      <label>Your working hours a day<input type="number" name="hours" step="0.5" min="0" value="5"></label>
+      <p class="small">Fixed costs: registration, gas and electricity share, insurance, marketing, software. Delivery: fuel, a driver, or a courier.</p>
+    </form>
+    <div class="result" aria-live="polite" data-out></div>
+  </div>
+  <section class="split band">
+    <div class="prose">
+      <h2>Benchmarks to sanity-check your numbers</h2>
+      <ul>
+        <li><b>Food cost:</b> aim for under 40% of your price. Home tiffin kitchens commonly report 40 to 50% gross margins.</li>
+        <li><b>Break-even:</b> Indian home tiffin services often need about 25 to 30 regular customers to cover their costs.</li>
+        <li><b>Delivery:</b> self-delivery within 3 to 5 km works at the start; a paid driver makes sense from roughly 30 customers.</li>
+        <li><b>Aggregator apps:</b> commissions of 15 to 20% are common, so price for it or stay direct.</li>
+      </ul>
+      <p class="small">Benchmarks from published guides on starting a tiffin service, including <a href="https://www.dineopen.com/blog/how-to-start-tiffin-service-india" target="_blank" rel="noopener">DineOpen</a>. Your local costs will differ.</p>
+      <p>Next step: read <a href="{{ '/guides/start-a-tiffin-business.html' | relative_url }}">how to start a tiffin business</a>, including registration rules by country.</p>
+    </div>
+    <div class="form-card">
+      <h2>Get the tiffin kitchen starter kit</h2>
+      <p>A launch checklist, a menu-rotation template and a pricing sheet, plus your calculator numbers, by email.</p>
+      <form data-tb-form="starter" data-inline-success="Sent. Check your inbox for the starter kit within one business day." novalidate>
+        <label>Name<input name="name" type="text" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        <div class="two">
+          <label>City<input name="city" type="text" autocomplete="address-level2"></label>
+          <label>Stage<select name="stage" required><option value="">Choose</option><option>Just an idea</option><option>Launching in 3 months</option><option>Running under 6 months</option><option>Running over 6 months</option></select></label>
+        </div>
+        <fieldset class="pills"><legend>Help I want</legend>
+          <label><input type="checkbox" name="wants" value="Licensing"> Licensing</label>
+          <label><input type="checkbox" name="wants" value="Packaging"> Packaging</label>
+          <label><input type="checkbox" name="wants" value="Software"> Ordering software</label>
+          <label><input type="checkbox" name="wants" value="Customers"> Finding customers</label>
+        </fieldset>
+        <input type="hidden" name="calc_summary" data-calc-summary>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <button class="btn btn-chili" type="submit">Email me the starter kit</button>
+        <p class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+  {% include video.html id="9rtbbiIeW7Y" title="Tips for starting a profitable home tiffin service" %}
+</div>

@@ -1,0 +1,58 @@
+---
+title: Tiffin safety checker
+description: Is your packed tiffin still safe to eat? Enter when it was packed, what is in it and how it was kept, and get a clear answer based on public food-safety timing rules.
+kind: Tool
+section: Tools
+section_url: /tools/
+crumb: Safety checker
+scripts: [tools.js]
+---
+<div class="wrap">
+  <header class="article-head">
+    <h1>Is my tiffin still safe?</h1>
+    <p class="lede">Perishable food should not sit in the temperature danger zone for more than two hours, or one hour when it is hot out. Insulated tins and ice packs buy time. Enter your tiffin and see where it stands.</p>
+  </header>
+  <div class="tool" data-tool="safety">
+    <form class="form-card" novalidate>
+      <div class="two">
+        <label>Packed at<input type="time" name="packed" value="08:00"></label>
+        <label>Eating at<input type="time" name="eat" value="13:00"></label>
+      </div>
+      <fieldset class="pills"><legend>What is in it?</legend>
+        <label><input type="checkbox" name="has" value="rice" checked> Rice or cooked grains</label>
+        <label><input type="checkbox" name="has" value="dairy"> Curd, paneer or milk</label>
+        <label><input type="checkbox" name="has" value="egg"> Egg</label>
+        <label><input type="checkbox" name="has" value="meat"> Meat or fish</label>
+        <label><input type="checkbox" name="has" value="cut"> Cut fruit, salad or sprouts</label>
+        <label><input type="checkbox" name="has" value="curry"> Dal, curry or sabzi</label>
+        <label><input type="checkbox" name="has" value="dry"> Dry items only (theplas, dry snacks)</label>
+      </fieldset>
+      <fieldset class="pills"><legend>How was it packed?</legend>
+        <label><input type="radio" name="pack" value="hot"> Hot, in a preheated insulated tin</label>
+        <label><input type="radio" name="pack" value="cold2"> Cold, with two ice packs</label>
+        <label><input type="radio" name="pack" value="cold1"> Cold, with one ice pack</label>
+        <label><input type="radio" name="pack" value="none" checked> No heat or cold source</label>
+      </fieldset>
+      <fieldset class="pills"><legend>Where did it wait?</legend>
+        <label><input type="radio" name="where" value="fridge"> In a fridge</label>
+        <label><input type="radio" name="where" value="room" checked> At room temperature</label>
+        <label><input type="radio" name="where" value="hot"> Above 32°C (90°F) or in a car</label>
+      </fieldset>
+    </form>
+    <div class="result" aria-live="polite" data-out></div>
+  </div>
+  <section class="prose">
+    <h2>The rules behind the answer</h2>
+    <ul>
+      <li>Bacteria multiply fastest between 4°C and 60°C (40°F and 140°F), the danger zone.</li>
+      <li>Perishable food should spend no more than 2 hours in that zone, or 1 hour above 32°C (90°F).</li>
+      <li>For cold tiffins, pack at least two cold sources, such as two ice packs or one ice pack and a frozen water bottle.</li>
+      <li>For hot tiffins, fill an insulated tin with boiling water for a few minutes, empty it, then add food at 60°C (140°F) or hotter and keep the lid closed until lunch.</li>
+      <li>Throw away anything left over at the end of lunch rather than bringing it home to eat later.</li>
+    </ul>
+    <p>The time allowances for insulated tins and ice packs in this checker are deliberately conservative rules of thumb built on that guidance. They are not a lab test of your container. When in doubt, throw it out.</p>
+    <p>Read more in our <a href="{{ '/guides/tiffin-food-safety.html' | relative_url }}">tiffin food safety guide</a>.</p>
+    <h2 id="sources">Sources</h2>
+    <ul class="sources"><li><a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/keeping-bag-lunches-safe" target="_blank" rel="noopener">USDA Food Safety and Inspection Service: keeping bag lunches safe</a></li></ul>
+  </section>
+</div>
